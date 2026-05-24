@@ -88,6 +88,9 @@ class WPPowerStack_MenuParser {
 		// Add settings pages
 		$menu_items = array_merge( $menu_items, $this->wppowerstack_get_settings_pages() );
 		
+		// Add WooCommerce pages
+		$menu_items = array_merge( $menu_items, $this->wppowerstack_get_woocommerce_pages() );
+		
 		return apply_filters( 'wppowerstack_parsed_menu_items', $menu_items );
 	}
 
@@ -98,7 +101,7 @@ class WPPowerStack_MenuParser {
 	private function wppowerstack_get_common_admin_pages() {
 		$common_pages = array(
 			array(
-				'title' => __( 'Dashboard', 'wpst-admin-search-bar-quick-actions-navigation' ),
+				'title' => __( 'Dashboard', 'powerstack-admin-search-quick-navigation' ),
 				'url' => admin_url(),
 				'capability' => 'read',
 				'icon' => 'dashicons-dashboard',
@@ -107,7 +110,7 @@ class WPPowerStack_MenuParser {
 				'keywords' => array( 'home', 'main', 'overview' )
 			),
 			array(
-				'title' => __( 'New Post', 'wpst-admin-search-bar-quick-actions-navigation' ),
+				'title' => __( 'New Post', 'powerstack-admin-search-quick-navigation' ),
 				'url' => admin_url( 'post-new.php' ),
 				'capability' => 'edit_posts',
 				'icon' => 'dashicons-plus-alt',
@@ -116,7 +119,7 @@ class WPPowerStack_MenuParser {
 				'keywords' => array( 'create', 'write', 'article', 'blog' )
 			),
 			array(
-				'title' => __( 'New Page', 'wpst-admin-search-bar-quick-actions-navigation' ),
+				'title' => __( 'New Page', 'powerstack-admin-search-quick-navigation' ),
 				'url' => admin_url( 'post-new.php?post_type=page' ),
 				'capability' => 'edit_pages',
 				'icon' => 'dashicons-plus-alt',
@@ -125,7 +128,7 @@ class WPPowerStack_MenuParser {
 				'keywords' => array( 'create', 'write', 'content' )
 			),
 			array(
-				'title' => __( 'Media Library', 'wpst-admin-search-bar-quick-actions-navigation' ),
+				'title' => __( 'Media Library', 'powerstack-admin-search-quick-navigation' ),
 				'url' => admin_url( 'upload.php' ),
 				'capability' => 'upload_files',
 				'icon' => 'dashicons-media-default',
@@ -134,7 +137,7 @@ class WPPowerStack_MenuParser {
 				'keywords' => array( 'images', 'files', 'uploads', 'photos' )
 			),
 			array(
-				'title' => __( 'Comments', 'wpst-admin-search-bar-quick-actions-navigation' ),
+				'title' => __( 'Comments', 'powerstack-admin-search-quick-navigation' ),
 				'url' => admin_url( 'edit-comments.php' ),
 				'capability' => 'moderate_comments',
 				'icon' => 'dashicons-admin-comments',
@@ -143,7 +146,7 @@ class WPPowerStack_MenuParser {
 				'keywords' => array( 'discussion', 'feedback', 'replies' )
 			),
 			array(
-				'title' => __( 'Users', 'wpst-admin-search-bar-quick-actions-navigation' ),
+				'title' => __( 'Users', 'powerstack-admin-search-quick-navigation' ),
 				'url' => admin_url( 'users.php' ),
 				'capability' => 'list_users',
 				'icon' => 'dashicons-admin-users',
@@ -152,7 +155,7 @@ class WPPowerStack_MenuParser {
 				'keywords' => array( 'accounts', 'profiles', 'people' )
 			),
 			array(
-				'title' => __( 'Plugins', 'wpst-admin-search-bar-quick-actions-navigation' ),
+				'title' => __( 'Plugins', 'powerstack-admin-search-quick-navigation' ),
 				'url' => admin_url( 'plugins.php' ),
 				'capability' => 'activate_plugins',
 				'icon' => 'dashicons-admin-plugins',
@@ -161,7 +164,7 @@ class WPPowerStack_MenuParser {
 				'keywords' => array( 'extensions', 'add-ons', 'modules' )
 			),
 			array(
-				'title' => __( 'Themes', 'wpst-admin-search-bar-quick-actions-navigation' ),
+				'title' => __( 'Themes', 'powerstack-admin-search-quick-navigation' ),
 				'url' => admin_url( 'themes.php' ),
 				'capability' => 'switch_themes',
 				'icon' => 'dashicons-admin-appearance',
@@ -193,7 +196,7 @@ class WPPowerStack_MenuParser {
 			// Add list view
 			$links[] = array(
 				/* translators: %s: post type name */
-				'title' => sprintf( __( 'All %s', 'wpst-admin-search-bar-quick-actions-navigation' ), $post_type->labels->name ),
+				'title' => sprintf( __( 'All %s', 'powerstack-admin-search-quick-navigation' ), $post_type->labels->name ),
 				'url' => admin_url( 'edit.php?post_type=' . $post_type->name ),
 				'capability' => $post_type->cap->edit_posts,
 				'icon' => 'dashicons-list-view',
@@ -208,7 +211,7 @@ class WPPowerStack_MenuParser {
 			// Add new post/page
 			$links[] = array(
 				/* translators: %s: post type singular name */
-				'title' => sprintf( __( 'New %s', 'wpst-admin-search-bar-quick-actions-navigation' ), $post_type->labels->singular_name ),
+				'title' => sprintf( __( 'New %s', 'powerstack-admin-search-quick-navigation' ), $post_type->labels->singular_name ),
 				'url' => admin_url( 'post-new.php?post_type=' . $post_type->name ),
 				'capability' => $post_type->cap->edit_posts,
 				'icon' => 'dashicons-plus-alt',
@@ -234,7 +237,7 @@ class WPPowerStack_MenuParser {
 		// General settings
 		if ( current_user_can( 'manage_options' ) ) {
 			$settings_pages[] = array(
-				'title' => __( 'General Settings', 'wpst-admin-search-bar-quick-actions-navigation' ),
+				'title' => __( 'General Settings', 'powerstack-admin-search-quick-navigation' ),
 				'url' => admin_url( 'options-general.php' ),
 				'capability' => 'manage_options',
 				'icon' => 'dashicons-admin-settings',
@@ -244,7 +247,7 @@ class WPPowerStack_MenuParser {
 			);
 
 			$settings_pages[] = array(
-				'title' => __( 'Permalinks', 'wpst-admin-search-bar-quick-actions-navigation' ),
+				'title' => __( 'Permalinks', 'powerstack-admin-search-quick-navigation' ),
 				'url' => admin_url( 'options-permalink.php' ),
 				'capability' => 'manage_options',
 				'icon' => 'dashicons-admin-links',
@@ -255,6 +258,110 @@ class WPPowerStack_MenuParser {
 		}
 
 		return $settings_pages;
+	}
+
+	/**
+	 * Get WooCommerce specific pages
+	 * @return array
+	 */
+	private function wppowerstack_get_woocommerce_pages() {
+		$woocommerce_pages = array();
+
+		if ( ! class_exists( 'WooCommerce' ) ) {
+			return $woocommerce_pages;
+		}
+
+		// WooCommerce Dashboard
+		if ( current_user_can( 'manage_woocommerce' ) ) {
+			$woocommerce_pages[] = array(
+				'title' => __( 'WooCommerce Dashboard', 'powerstack-admin-search-quick-navigation' ),
+				'url' => admin_url( 'admin.php?page=wc-admin' ),
+				'capability' => 'manage_woocommerce',
+				'icon' => 'dashicons-dashboard',
+				'type' => 'woocommerce',
+				'category' => 'WooCommerce',
+				'keywords' => array( 'woocommerce', 'wc', 'dashboard', 'overview' )
+			);
+
+			// WooCommerce Orders
+			$woocommerce_pages[] = array(
+				'title' => __( 'WooCommerce Orders', 'powerstack-admin-search-quick-navigation' ),
+				'url' => admin_url( 'admin.php?page=wc-orders' ),
+				'capability' => 'manage_woocommerce',
+				'icon' => 'dashicons-cart',
+				'type' => 'woocommerce',
+				'category' => 'WooCommerce',
+				'keywords' => array( 'woocommerce', 'wc', 'orders', 'sales' )
+			);
+
+			// WooCommerce Products
+			$woocommerce_pages[] = array(
+				'title' => __( 'WooCommerce Products', 'powerstack-admin-search-quick-navigation' ),
+				'url' => admin_url( 'admin.php?page=wc-products' ),
+				'capability' => 'manage_woocommerce',
+				'icon' => 'dashicons-products',
+				'type' => 'woocommerce',
+				'category' => 'WooCommerce',
+				'keywords' => array( 'woocommerce', 'wc', 'products', 'inventory' )
+			);
+
+			// WooCommerce Customers
+			$woocommerce_pages[] = array(
+				'title' => __( 'WooCommerce Customers', 'powerstack-admin-search-quick-navigation' ),
+				'url' => admin_url( 'admin.php?page=wc-customers' ),
+				'capability' => 'manage_woocommerce',
+				'icon' => 'dashicons-groups',
+				'type' => 'woocommerce',
+				'category' => 'WooCommerce',
+				'keywords' => array( 'woocommerce', 'wc', 'customers', 'users' )
+			);
+
+			// WooCommerce Coupons
+			$woocommerce_pages[] = array(
+				'title' => __( 'WooCommerce Coupons', 'powerstack-admin-search-quick-navigation' ),
+				'url' => admin_url( 'admin.php?page=wc-coupons' ),
+				'capability' => 'manage_woocommerce',
+				'icon' => 'dashicons-tickets',
+				'type' => 'woocommerce',
+				'category' => 'WooCommerce',
+				'keywords' => array( 'woocommerce', 'wc', 'coupons', 'discounts' )
+			);
+
+			// WooCommerce Analytics - Fix potential 404 errors with correct URLs
+			$woocommerce_pages[] = array(
+				'title' => __( 'WooCommerce Analytics', 'powerstack-admin-search-quick-navigation' ),
+				'url' => admin_url( 'admin.php?page=wc-admin&path=/analytics/overview' ),
+				'capability' => 'manage_woocommerce',
+				'icon' => 'dashicons-chart-bar',
+				'type' => 'woocommerce',
+				'category' => 'WooCommerce',
+				'keywords' => array( 'woocommerce', 'wc', 'analytics', 'reports', 'stats' )
+			);
+
+			// WooCommerce Reports
+			$woocommerce_pages[] = array(
+				'title' => __( 'WooCommerce Reports', 'powerstack-admin-search-quick-navigation' ),
+				'url' => admin_url( 'admin.php?page=wc-reports' ),
+				'capability' => 'manage_woocommerce',
+				'icon' => 'dashicons-chart-area',
+				'type' => 'woocommerce',
+				'category' => 'WooCommerce',
+				'keywords' => array( 'woocommerce', 'wc', 'reports', 'analytics', 'sales' )
+			);
+
+			// WooCommerce Settings
+			$woocommerce_pages[] = array(
+				'title' => __( 'WooCommerce Settings', 'powerstack-admin-search-quick-navigation' ),
+				'url' => admin_url( 'admin.php?page=wc-settings' ),
+				'capability' => 'manage_woocommerce',
+				'icon' => 'dashicons-admin-settings',
+				'type' => 'woocommerce',
+				'category' => 'WooCommerce',
+				'keywords' => array( 'woocommerce', 'wc', 'settings', 'configuration' )
+			);
+		}
+
+		return $woocommerce_pages;
 	}
 
 	/**

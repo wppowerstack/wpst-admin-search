@@ -148,7 +148,7 @@ class WPPowerStack_Security {
 			
 			return new WP_Error(
 				'rate_limit_exceeded',
-				__( 'Rate limit exceeded. Please try again later.', 'wpst-admin-search-bar-quick-actions-navigation' ),
+				__( 'Rate limit exceeded. Please try again later.', 'powerstack-admin-search-quick-navigation' ),
 				array( 'status' => 429 )
 			);
 		}

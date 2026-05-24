@@ -1,44 +1,36 @@
 {
-  "name": "wppowerstack-command-bar",
+  "name": "powerstack-admin-search-quick-navigation",
   "version": "1.0.0",
-  "description": "Instantly navigate WordPress and WooCommerce using a Spotlight-style command palette (Cmd+K). Fast, lightweight admin search with zero bloat! ⚡",
-  "main": "wppowerstack-command-bar.php",
+  "description": "Lightning-fast command palette for WordPress admin navigation and WooCommerce search",
+  "main": "assets/js/src/index.js",
   "scripts": {
-    "build": "wp-scripts build assets/js/src/index.js --output-path=build --externals wp-element,wp-data,wp-components,wp-i18n",
-    "start": "wp-scripts start assets/js/src/index.js --output-path=build",
-    "dev": "wp-scripts start assets/js/src/index.js --output-path=build",
-    "lint:js": "wp-scripts lint-js assets/js/src",
-    "lint:css": "wp-scripts lint-style assets/css/src",
-    "format": "wp-scripts format assets/js/src assets/css/src",
-    "packages-update": "wp-scripts packages-update",
-    "plugin-zip": "wp-scripts plugin-zip"
+    "build": "wp-scripts build assets/js/src/index.js --output-path=assets/js/build",
+    "start": "wp-scripts start assets/js/src/index.js --output-path=assets/js/build",
+    "dev": "wp-scripts start assets/js/src/index.js --output-path=assets/js/build"
   },
   "keywords": [
     "wordpress",
-    "woocommerce",
     "admin",
-    "command-palette",
-    "spotlight",
     "search",
-    "navigation",
-    "keyboard-shortcuts"
+    "command-palette",
+    "woocommerce",
+    "navigation"
   ],
-  "author": "WPPowerStack",
+  "author": "PowerStack",
   "license": "GPL-2.0-or-later",
   "devDependencies": {
-    "@wordpress/scripts": "^26.0.0"
+    "@wordpress/scripts": "^26.0.0",
+    "css-loader": "^7.1.4",
+    "sass": "^1.100.0",
+    "sass-loader": "^17.0.0",
+    "style-loader": "^4.0.0"
   },
   "dependencies": {
     "@wordpress/element": "^5.0.0",
-    "cmdk": "^0.2.0",
     "fuse.js": "^6.6.2"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/wppowerstack/admin-search-quick-navigation.git"
-  },
-  "bugs": {
-    "url": "https://github.com/wppowerstack/admin-search-quick-navigation/issues"
-  },
-  "homepage": "https://wppowerstack.com"
+    "url": "https://github.com/powerstack/admin-search-quick-navigation.git"
+  }
 }

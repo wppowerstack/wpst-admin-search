@@ -75,7 +75,7 @@ class WPPowerStack_Content_Search {
 		if ( ! current_user_can( 'manage_options' ) ) {
 			return new WP_Error(
 				'rest_forbidden',
-				__( 'Sorry, you are not allowed to access this endpoint.', 'wpst-admin-search-bar-quick-actions-navigation' ),
+				__( 'Sorry, you are not allowed to access this endpoint.', 'powerstack-admin-search-quick-navigation' ),
 				array( 'status' => 403 )
 			);
 		}
@@ -105,7 +105,7 @@ class WPPowerStack_Content_Search {
 		if ( empty( $query ) || strlen( $query ) < 2 ) {
 			return new WP_Error(
 				'invalid_query',
-				__( 'Search query must be at least 2 characters long.', 'wpst-admin-search-bar-quick-actions-navigation' ),
+				__( 'Search query must be at least 2 characters long.', 'powerstack-admin-search-quick-navigation' ),
 				array( 'status' => 400 )
 			);
 		}
@@ -282,7 +282,7 @@ class WPPowerStack_Content_Search {
 				$item['view_url'] = get_permalink( $post->ID );
 				$item['icon'] = 'dashicons-post';
 				/* translators: %s: publication date */
-				$item['description'] = sprintf( __( 'Published on %s', 'wpst-admin-search-bar-quick-actions-navigation' ), get_the_date( 'F j, Y', $post ) );
+				$item['description'] = sprintf( __( 'Published on %s', 'powerstack-admin-search-quick-navigation' ), get_the_date( 'F j, Y', $post ) );
 				
 				// Get featured image for posts
 				if ( has_post_thumbnail( $post->ID ) ) {
@@ -297,7 +297,7 @@ class WPPowerStack_Content_Search {
 				$item['view_url'] = get_permalink( $post->ID );
 				$item['icon'] = 'dashicons-page';
 				/* translators: %s: publication date */
-				$item['description'] = sprintf( __( 'Page published on %s', 'wpst-admin-search-bar-quick-actions-navigation' ), get_the_date( 'F j, Y', $post ) );
+				$item['description'] = sprintf( __( 'Page published on %s', 'powerstack-admin-search-quick-navigation' ), get_the_date( 'F j, Y', $post ) );
 				
 				// Get featured image for pages
 				if ( has_post_thumbnail( $post->ID ) ) {
@@ -313,7 +313,7 @@ class WPPowerStack_Content_Search {
 				$item['view_url'] = wp_get_attachment_url( $post->ID );
 				$item['icon'] = $this->wppowerstack_get_media_icon( $post );
 				/* translators: %s: upload date */
-				$item['description'] = sprintf( __( 'Uploaded on %s', 'wpst-admin-search-bar-quick-actions-navigation' ), get_the_date( 'F j, Y', $post ) );
+				$item['description'] = sprintf( __( 'Uploaded on %s', 'powerstack-admin-search-quick-navigation' ), get_the_date( 'F j, Y', $post ) );
 				
 				// Add file size for media
 				$file_size = size_format( filesize( get_attached_file( $post->ID ) ) );
@@ -439,7 +439,7 @@ class WPPowerStack_Content_Search {
 					'id' => $order->get_id(),
 					'title' => sprintf(
 						/* translators: %s: order number */
-						__( 'Order #%s', 'wpst-admin-search-bar-quick-actions-navigation' ),
+						__( 'Order #%s', 'powerstack-admin-search-quick-navigation' ),
 						$order->get_order_number()
 					),
 					'description' => sprintf(

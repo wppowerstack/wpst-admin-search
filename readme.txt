@@ -1,5 +1,5 @@
-=== WPPowerStack - Admin search and quick navigation ===
-Contributors: wppowerstack, rajputravindra694
+=== PowerStack - Admin search and quick navigation ===
+Contributors: rajputravindra694
 Tags: admin search, command palette, command bar, woocommerce search, quick edit
 Requires at least: 5.8
 Tested up to: 7.0
@@ -8,7 +8,7 @@ Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-A lightning-fast, keyboard-first command palette for WordPress admin navigation and WooCommerce search. Open with Cmd+K to search orders, products, and posts instantly.
+Lightning-fast command palette for WordPress admin navigation and WooCommerce search. Open with Cmd+K to search orders, products, and posts instantly.
 
 == Description ==
 
@@ -16,7 +16,7 @@ WPPowerStack - Admin search and quick navigation is a lightweight, zero-latency 
 
 == Source Code ==
 
-Source code is available on GitHub: https://github.com/wppowerstack/admin-search-quick-navigation
+Source code is available on GitHub: https://github.com/wppowerstack/wpst-admin-search
 
 Instantly navigate your entire WordPress dashboard using a Mac Spotlight-style or Alfred-style search overlay triggered with a quick keyboard shortcut.
 
