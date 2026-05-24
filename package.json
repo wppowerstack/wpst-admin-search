@@ -1,0 +1,44 @@
+{
+  "name": "wppowerstack-command-bar",
+  "version": "1.0.0",
+  "description": "Instantly navigate WordPress and WooCommerce using a Spotlight-style command palette (Cmd+K). Fast, lightweight admin search with zero bloat! ⚡",
+  "main": "wppowerstack-command-bar.php",
+  "scripts": {
+    "build": "wp-scripts build assets/js/src/index.js --output-path=build --externals wp-element,wp-data,wp-components,wp-i18n",
+    "start": "wp-scripts start assets/js/src/index.js --output-path=build",
+    "dev": "wp-scripts start assets/js/src/index.js --output-path=build",
+    "lint:js": "wp-scripts lint-js assets/js/src",
+    "lint:css": "wp-scripts lint-style assets/css/src",
+    "format": "wp-scripts format assets/js/src assets/css/src",
+    "packages-update": "wp-scripts packages-update",
+    "plugin-zip": "wp-scripts plugin-zip"
+  },
+  "keywords": [
+    "wordpress",
+    "woocommerce",
+    "admin",
+    "command-palette",
+    "spotlight",
+    "search",
+    "navigation",
+    "keyboard-shortcuts"
+  ],
+  "author": "WPPowerStack",
+  "license": "GPL-2.0-or-later",
+  "devDependencies": {
+    "@wordpress/scripts": "^26.0.0"
+  },
+  "dependencies": {
+    "@wordpress/element": "^5.0.0",
+    "cmdk": "^0.2.0",
+    "fuse.js": "^6.6.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wppowerstack/admin-search-quick-navigation.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wppowerstack/admin-search-quick-navigation/issues"
+  },
+  "homepage": "https://wppowerstack.com"
+}
